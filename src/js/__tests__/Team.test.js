@@ -27,7 +27,7 @@ test('test успешное добавление по одному', () => {
   const t = new Team();
   t.add(p);
   t.add(p0);
-  expect(t).toMatchObject((new Team([p, p0])).members);
+  expect(t).toMatchObject(new Team([p, p0]).members);
 });
 
 test('test преобразование в массив', () => {
@@ -44,7 +44,7 @@ test('test успешное добавление двоих', () => {
   const p0 = new Person('hero1', 'Bowman');
   const t = new Team();
   t.addAll(p, p0);
-  expect(t).toMatchObject(new Team([p, p0])["members"]);
+  expect(t).toMatchObject(new Team([p, p0]).members);
 });
 
 test('test вызов итератора', () => {
@@ -72,11 +72,11 @@ test('test Symbol.iterator', () => {
     const p3 = new Person('hero', 'Magician');
     const p4 = new Person('hero1', 'Bowman');
     const obj2 = new Team([p3, p4]);
-    obj2.funcIterator();
+    const func = obj2.funcIterator();
     /*
     const t = obj2.members[Symbol.iterator]();
     */
-    expect(obj2.funcIterator()).toBeTruthy(() => {obj2.members[Symbol.iterator]();});
+    expect(func).toBeTruthy(() => {obj2.members[Symbol.iterator]();});
   }).toBeTruthy();
 });
 
@@ -104,4 +104,14 @@ test('test Symbol.iterator true', () => {
     */
     expect(obj2.members.next(1)).toBe({ done: true });
   }).toBeTruthy();
+});
+
+test('test iterator 3', () => {
+  const p = new Person('hero', 'Magician');
+  const p0 = new Person('hero1', 'Bowman');
+  const t = new Team();
+  t.addAll(p, p0);
+  t.funcIterator();
+  const func = t[Symbol.iterator]().next().value;
+  expect(func).toBe({ done: true });
 });

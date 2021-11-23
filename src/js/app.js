@@ -9,4 +9,4 @@ const obj1 = new Team();
 obj1.add(p1);
 obj1.addAll(p1, p2, p3);
 console.log('comands2:', obj1);
-obj1.iterator();
+obj1.funcIterator();
