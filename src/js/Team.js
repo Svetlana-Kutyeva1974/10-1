@@ -20,12 +20,14 @@ export default class Team {
   }
 
   funcIterator() {
+    /*
     const t = this.members[Symbol.iterator]();
+    */
     for (const num of this) {
       /*
       console.log(obj1.members.values(num));
       */
-      console.log(num, t.next().value);
+      console.log(num, this.members[Symbol.iterator]().next().value);
     }
   }
 
