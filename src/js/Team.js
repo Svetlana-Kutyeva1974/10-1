@@ -14,9 +14,9 @@ export default class Team {
           return { done: false, value: current };
         }
         return { done: true };
-      }
+      },
     // eslint semi: ["error", "always"]
-    }
+    };
   }
 
   funcIterator() {

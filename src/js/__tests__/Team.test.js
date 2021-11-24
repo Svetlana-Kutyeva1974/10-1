@@ -62,7 +62,7 @@ test('test символ итератор вызов', () => {
     const p3 = new Person('hero', 'Magician');
     const p4 = new Person('hero1', 'Bowman');
     const obj2 = new Team();
-    t.addAll(p3, p4);
+    obj2.addAll(p3, p4);
     const t = obj2[Symbol.iterator]();
     expect(t.next().value).toBe(1);
   }).toBeTruthy();
@@ -73,12 +73,12 @@ test('test Symbol.iterator', () => {
     const p3 = new Person('hero', 'Magician');
     const p4 = new Person('hero1', 'Bowman');
     const obj2 = new Team();
-    t.addAll(p3, p4);
+    obj2.addAll(p3, p4);
     const func = obj2.funcIterator();
     /*
     const t = obj2.members[Symbol.iterator]();
     */
-    expect(func).toBeTruthy(() => {obj2.members[Symbol.iterator]();});
+    expect(func).toBeTruthy(() => { obj2.members[Symbol.iterator](); });
   }).toBeTruthy();
 });
 /*
@@ -96,11 +96,12 @@ test('test Symbol.iterator true', () => {
     const p3 = new Person('hero', 'Magician');
     const p4 = new Person('hero1', 'Bowman');
     const obj2 = new Team([p3, p4]);
-    t.addAll(p3, p4);
+    obj2.addAll(p3, p4);
     obj2.funcIterator();
     /*
     const t = obj2.members[Symbol.iterator]();
     */
+    // eslint-disable-next-line no-unused-vars
     const func = obj2.members[Symbol.iterator]();
     /*
     expect(func.next(1)).toBe({ done: true });

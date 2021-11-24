@@ -14,8 +14,6 @@
     },
     "rules": {
         "strict": 0,
-        "semi": true,
-        "no-plusplus": true,
         "no-underscore-dangle": ["error", { "allowAfterThis": true }],
         "no-else-return": ["error", {"allowElseIf": false}],
         "prefer-destructuring": ["error", {"object": true, "array": false}],
